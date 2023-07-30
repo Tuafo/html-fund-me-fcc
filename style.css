@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.side-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: white;
+    width: 150px;
+}
+
+.nav-button {
+    background-color: transparent;
+    color: #333;
+    padding: 10px 24px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 100%; /* make the buttons full width of the side-card */
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #333;
+    color: white;
+}
+
+h1 {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: none;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: white;
+    width: 350px;
+}
+
+.card button {
+    background-color: transparent;
+    color: #333;
+    padding: 10px 24px;
+    margin: 0px 0;
+    border: 2px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 100%;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #333;
+    color: white;
+}
+
+.card input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.card label {
+    align-self: flex-start;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.card .info {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.card.hidden {
+    display: none;
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Fund Me App</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="side-card">
+                <button id="infoButton" class="nav-button">Info</button>
+                <button id="actionsButton" class="nav-button">Actions</button>
+            </div>
+
+            <div id="cardStack">
+                <div id="infoCard" class="card">
+                    <h1>Fund Me</h1>
+                    <p>
+                        Welcome to Fund Me! This decentralized application
+                        allows users to fund and withdraw Ether. Interact with
+                        our simple interface to manage transactions. Connect to
+                        the application using your MetaMask wallet, check the
+                        balance, fund Ether, and make withdrawals. Ensure you
+                        have installed MetaMask for seamless operations.
+                    </p>
+                </div>
+
+                <div id="actionsCard" class="card hidden">
+                    <button id="connectButton">Connect</button>
+                    <p id="connectInfo"></p>
+                    <button id="balanceButton">getBalance</button>
+                    <p id="balanceInfo"></p>
+                    <button id="withdrawButton">Withdraw</button>
+                    <p id="withdrawInfo"></p>
+                    <label for="ethAmount">ETH Amount</label>
+                    <input id="ethAmount" placeholder="0.1" type="number" />
+                    <button type="button" id="fundButton">Fund</button>
+                    <p id="fundInfo"></p>
+                </div>
+            </div>
+        </div>
+
+        <script src="./index.js" type="module"></script>
+        <script src="./menu.js" type="text/javascript"></script>
+    </body>
+</html>
