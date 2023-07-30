@@ -11,6 +11,7 @@ fundButton.onclick = fund
 balanceButton.onclick = getBalance
 
 async function connect() {
+    const connectInfo = document.getElementById("connectInfo")
     if (typeof window.ethereum !== "undefined") {
         try {
             await ethereum.request({ method: "eth_requestAccounts" })
@@ -19,9 +20,7 @@ async function connect() {
         }
         connectButton.innerHTML = "Connected"
         const accounts = await ethereum.request({ method: "eth_accounts" })
-        document.getElementById(
-            "info",
-        ).innerText = `Connected to accounts: ${accounts}`
+        connectInfo.innerText = `Connected to accounts: ${accounts}`
     } else {
         connectButton.innerHTML = "Please install MetaMask"
     }
@@ -29,8 +28,9 @@ async function connect() {
 
 async function fund() {
     const ethAmount = document.getElementById("ethAmount").value
-    console.log(`Funding with ${ethAmount}...`)
-    document.getElementById("info").innerText = `Funding with ${ethAmount}...`
+    const fundInfo = document.getElementById("fundInfo")
+    console.log(`Funding with ${ethAmount}ETH...`)
+    fundInfo.innerText = `Funding with ${ethAmount}ETH...`
     if (typeof window.ethereum !== "undefined") {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
@@ -40,14 +40,11 @@ async function fund() {
                 value: ethers.utils.parseEther(ethAmount),
             })
             await transactionResponse.wait(1)
-            document.getElementById(
-                "info",
-            ).innerText = `${ethAmount} ETH has been funded successfully`
+            fundInfo.innerText = `${ethAmount} ETH has been funded successfully`
         } catch (error) {
             console.log(error)
             if (error.message === "User denied transaction signature.") {
-                document.getElementById("info").innerText =
-                    "Transaction was cancelled"
+                fundInfo.innerText = "Transaction was cancelled"
             }
         }
     } else {
@@ -56,8 +53,9 @@ async function fund() {
 }
 
 async function withdraw() {
+    const withdrawInfo = document.getElementById("withdrawInfo")
     console.log(`Withdrawing...`)
-    document.getElementById("info").innerText = `Withdrawing...`
+    withdrawInfo.innerText = `Withdrawing...`
     if (typeof window.ethereum !== "undefined") {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         await provider.send("eth_requestAccounts", [])
@@ -66,13 +64,11 @@ async function withdraw() {
         try {
             const transactionResponse = await contract.withdraw()
             await transactionResponse.wait(1)
-            document.getElementById("info").innerText =
-                "All funds have been withdrawn"
+            withdrawInfo.innerText = "All funds have been withdrawn"
         } catch (error) {
             console.log(error)
             if (error.message === "User denied transaction signature.") {
-                document.getElementById("info").innerText =
-                    "Transaction was cancelled"
+                withdrawInfo.innerText = "Transaction was cancelled"
             }
         }
     } else {
@@ -81,14 +77,13 @@ async function withdraw() {
 }
 
 async function getBalance() {
+    const balanceInfo = document.getElementById("balanceInfo")
     if (typeof window.ethereum !== "undefined") {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         try {
             const balance = await provider.getBalance(contractAddress)
             console.log(ethers.utils.formatEther(balance))
-            document.getElementById(
-                "info",
-            ).innerText = `Contract balance: ${ethers.utils.formatEther(
+            balanceInfo.innerText = `Contract balance: ${ethers.utils.formatEther(
                 balance,
             )} ETH`
         } catch (error) {
