@@ -1,6 +1,6 @@
 # [Fund Me App](https://tuafo.github.io/html-fund-me-fcc/)
 
-The Fund Me App is a simple web application that interacts with the Ethereum blockchain and the FundMe smart contract. The application allows users to connect to the site via MetaMask, check the balance of a specific contract, fund the contract with ETH, and withdraw funds from the contract if you are the owner of the contract.
+The Fund Me App is a simple web application that interacts with the Ethereum blockchain and the FundMe smart contract(https://github.com/Tuafo/hardhat-fund-me-fcc). The application allows users to connect to the site via MetaMask, check the balance of a specific contract, fund the contract with ETH, and withdraw funds from the contract if you are the owner of the contract.
 
 ## Prerequisites
 
